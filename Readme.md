@@ -9,8 +9,6 @@ The source code for the Android app and the Tensy 2.0 firmeware can be found in 
 
 - [Source code for Arduino](arduino_source/Hc05_Temperatur_Sensor)
 
-- [APK for Android](app/release)
-
 More information about the project can be found here:[CodingByChanche Blog, Bluetooth Thermometer](https://codingbychance.wordpress.com/2019/01/21/bluetooth-termometer/#more-640) (German language blog).
 
 Screenshoot
