@@ -1,0 +1,3 @@
+include ':locationLibrary'
+include ':app'
+rootProject.name = "BluetoothThermometer"

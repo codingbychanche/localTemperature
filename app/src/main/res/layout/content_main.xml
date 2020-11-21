@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="berthold.localtemperature.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <TextView
+        android:id="@+id/name_of_connected_device"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name of connected device...."
+        android:textSize="20dp"
+        android:textStyle="bold"></TextView>
+
+    <WebView
+        android:id="@+id/temp_and_humidity_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </WebView>
+
+        <TextView
+            android:id="@+id/connection_status"
+            android:hint="@string/status_display_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+</LinearLayout>

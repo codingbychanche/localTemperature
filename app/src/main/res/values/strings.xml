@@ -1,0 +1,39 @@
+<!--
+  ~ Created by Berthold Fritz
+  ~
+  ~ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License:
+  ~ https://creativecommons.org/licenses/by-nc-sa/4.0/
+  ~
+  ~  Last modified 12/18/18 11:16 PM
+  -->
+
+<resources>
+    <string name="app_name">LocalTemperature</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Main -->
+    <string name="status_display_hint">Verbindungsstatus</string>
+    <string name="info_connecting">\nVerbindungsaufbau......</string>
+    <string name="no_device_selected">\nKein neues Gerät ausgewählt. </string>
+    <string name="name_of_device_selected">\nAusgewähltes Gerät:</string>
+    <string name="found_bomded_devices_looking_for_hc05">\nGekoppelte Geräte gefunden, suche nach:</string>
+    <string name="found_hc05">\nGerät gefunden </string>
+
+
+    <string name="error_no_bonded_devices_found">\nEs wurde keine gekoppeltes Geräte gefunde.</string>
+    <string name="error_no_dev_with_this_address_found">\nDas bisher genutzte Gerät konnte anhand seiner Adresse nicht mehr in der Liste der gekoppelten Geräte gefunden werden.</string>#
+
+    <string name="error_temperature_sensor_not_found">\nBluetooth sensor nicht gefunden.</string>
+
+    <string name="dew_point_remark">Taupunkt</string>
+    <string name="hum_remark">Relative Luftfeuchte</string>
+    <string name="press_remark">Luftdruck am Gerätestandort</string>
+    <string name="alt_remark">Über Standartluftdruck bezogen auf Luftdruck am Gerätestandort</string>
+
+    <!-- Fragment asking for BT connection -->
+
+    <string name="ask_for_bt_connection">Bluetooth is ausgeschaltet, aktivieren?</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="ok">Ja</string>
+
+</resources>
