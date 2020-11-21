@@ -19,12 +19,9 @@ Screenshoot
 
 [APK for Android](app/release/app-release.apk)
 
-Schemantic
-==========
-![](arduino_source/Hardware/Schemantic.png)
-
 PCB
 ===
-![](arduino_source/Hardware/PCB.png)
+![](arduino_source/Hardware_Design/PCB.png)
 
-Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+
+icons depicting sunrise/ sunset made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
