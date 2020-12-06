@@ -7,20 +7,23 @@
   ~  Last modified 12/18/18 11:16 PM
   -->
 
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="berthold.localtemperature.MainActivity">
+    app:layoutDescription="@xml/activity_main_alt_scene"
+    tools:context="com.example.bluetooththermometer.MainActivity">
 
     <ImageView
+        android:id="@+id/image1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/noclouds_evening_port"></ImageView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_set_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="20dp"
@@ -156,7 +159,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Temp1"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         </TextView>
@@ -166,10 +169,9 @@
             style="@style/Remark_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
             android:hint="Temp2"
             app:layout_constraintBottom_toBottomOf="@+id/temp_main_unit"
-            app:layout_constraintStart_toEndOf="@+id/temp_main_unit"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/temp_main_unit">
 
         </TextView>
@@ -181,7 +183,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:hint="Hum"
-            app:layout_constraintStart_toStartOf="@+id/temp_main_unit"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
             app:layout_constraintTop_toBottomOf="@+id/temp_main_unit"></TextView>
 
         <TextView
@@ -189,6 +191,7 @@
             style="@style/Remark_text_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:rotationX="-104"
             android:text="@string/hum_remark"
             app:layout_constraintStart_toStartOf="@+id/humidity"
             app:layout_constraintTop_toBottomOf="@+id/humidity"></TextView>
@@ -299,26 +302,28 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/reconnect"
         style="@style/floating_action_button_style"
-        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+
         android:id="@+id/select_device"
-        android:visibility="gone"
         style="@style/floating_action_button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="test"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/reconnect"
         app:layout_constraintEnd_toStartOf="@+id/reconnect"
         app:layout_constraintTop_toTopOf="@+id/reconnect"
         app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.motion.widget.MotionLayout>
