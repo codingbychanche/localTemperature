@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:motionInterpolator="linear"
+        motion:autoTransition="none">
+
+        <OnSwipe
+            motion:touchAnchorId="@+id/temp_alt_unit"
+            motion:touchRegionId="@+id/temp_alt_unit"
+            motion:touchAnchorSide="bottom"
+            motion:dragDirection="dragLeft"
+            motion:duration="5000"/>
+
+        <KeyFrameSet >
+            <KeyAttribute
+                motion:motionTarget="@+id/temp_main_unit"
+                motion:framePosition="0"
+                android:scaleX="5"
+                android:scaleY="5"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/temp_alt_unit"
+                motion:framePosition="0"
+                android:scaleX="1"
+                android:scaleY="1"/>
+        </KeyFrameSet>
+
+        <KeyFrameSet >
+            <KeyAttribute
+                motion:motionTarget="@+id/temp_main_unit"
+                motion:framePosition="100"
+                android:scaleX="1"
+                android:scaleY="1"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/temp_alt_unit"
+                motion:framePosition="100"
+                android:scaleX="5"
+                android:scaleY="5"/>
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/temp_main_unit"/>
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/temp_main_unit"
+            android:layout_width="wrap_content"
+            android:id="@+id/temp_alt_unit"
+            motion:layout_constraintStart_toStartOf="@+id/dew_point" />
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_constraintStart_toStartOf="@+id/imageView"
+            android:id="@+id/humidity"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="150dp"
+            android:layout_marginStart="16dp" />
+        <Constraint
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/imageView"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/connection_animation"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp" />
+        <Constraint
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/imageView"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/connection_signal_strength"
+            motion:layout_constraintEnd_toStartOf="@+id/connection_animation" />
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/temp_main_unit"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_editor_absoluteY="26dp"
+            motion:layout_constraintStart_toStartOf="@+id/dew_point" />
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:id="@+id/temp_alt_unit"
+            android:layout_marginStart="95dp"
+            motion:layout_editor_absoluteY="58dp" />
+        <Constraint
+            motion:layout_constraintEnd_toStartOf="@+id/connection_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/imageView"
+            android:layout_marginEnd="0dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/connection_signal_strength" />
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_editor_absoluteX="390dp"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintBottom_toBottomOf="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:id="@+id/connection_animation" />
+    </ConstraintSet>
+</MotionScene>

@@ -31,6 +31,12 @@
         <item name="android:textSize">10dp</item>
     </style>
 
+    <!-- When a predefined text style is not whished, e.g. for motions..... -->
+    <style name="fontStyle">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+    </style>
+
     <style name="Titel_text_style">
         <item name="android:textColor">#ffffff</item>
         <item name="android:fontFamily">sans-serif-thin</item>

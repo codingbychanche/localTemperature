@@ -43,12 +43,12 @@ import com.example.locationlibrary.EnvironmentSunriseSunsetTimeDateCalc;
 import com.example.locationlibrary.EnvironmentSunsetSunriseCalc;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
 import org.berthold.physicsFormulas.*;
+
 import berthold.trendAnalyzer.DataToAnalyze;
 
 /**
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
     private TextView connectionStatus, nameOfConnectedDevice, deviceBatStatus, connectionStrength, connectionAnimation;
     private FloatingActionButton reconnect, connectToAnotherDevice;
 
-    private TextView timeZoneView,sunriseView,sunsetView,addressView;
+    private TextView timeZoneView, sunriseView, sunsetView, addressView;
 
     // Bluetooth
     private BluetoothAdapter blueToothAdapter;
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
     private List<Address> addresses;
 
     //
-   private Environment env;
+    private Environment env;
 
     // GPS
     private LocationManager locationManager;
@@ -176,10 +176,10 @@ public class MainActivity extends AppCompatActivity
         switchBasePressureForAlt = findViewById(R.id.switch_bas_pressure);
 
         // UI elements showing enviromental data
-        timeZoneView =findViewById(R.id.time_zone);
-        sunriseView=findViewById(R.id.sunrise_time);
-        sunsetView=findViewById(R.id.sunset_time);
-        addressView=findViewById(R.id.address);
+        timeZoneView = findViewById(R.id.time_zone);
+        sunriseView = findViewById(R.id.sunrise_time);
+        sunsetView = findViewById(R.id.sunset_time);
+        addressView = findViewById(R.id.address);
 
         // Check if bluetooth is enabeled
         BluetoothManager bm = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
@@ -232,7 +232,7 @@ public class MainActivity extends AppCompatActivity
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         geocoder = new Geocoder(this, Locale.getDefault());
 
-        Log.v("LOCATIONLOCATION","ENV"+env);
+        Log.v("LOCATIONLOCATION", "ENV" + env);
         if (env == null) {
             env = new Environment(this, locationManager, geocoder);
             env.start();
@@ -301,7 +301,7 @@ public class MainActivity extends AppCompatActivity
      * list of bonded dev's allowing the user to select one.....
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-    private void connectToDeviceLogic (){
+    private void connectToDeviceLogic() {
         // Device already selected and saved after leaving previous session?
         // If so, try to reconnect... If not, show list of devices
         // to connect to.
@@ -517,10 +517,10 @@ public class MainActivity extends AppCompatActivity
 
         if (avrSlope_HP < 0) tentencySymbolAirPressure = ARROW_FALLING_MODERATE;
         if (avrSlope_HP == 0) tentencySymbolAirPressure = ARROW_CONSTANT;
-        if (avrSlope_HP > 1) tentencySymbolAirPressure = ARROW_RISING_MODERATE;
+        if (avrSlope_HP > 0) tentencySymbolAirPressure = ARROW_RISING_MODERATE;
 
 
-       PressureEvalResult pressureEvalResult = new PressureEvalResult(tentencySymbolAirPressure, timeEleapsedSinceThreadWasStarted_MIN);
+        PressureEvalResult pressureEvalResult = new PressureEvalResult(tentencySymbolAirPressure, timeEleapsedSinceThreadWasStarted_MIN);
         return pressureEvalResult;
     }
 
@@ -567,7 +567,7 @@ public class MainActivity extends AppCompatActivity
 
                 //waitingForGpsView.setVisibility(View.GONE);
 
-                String fullAddress=environmentAddress.getAddress();
+                String fullAddress = environmentAddress.getAddress();
                 String city = environmentAddress.getCity();
                 String state = environmentAddress.getState();
                 String postalCode = environmentAddress.getPostalCode();
@@ -586,18 +586,18 @@ public class MainActivity extends AppCompatActivity
                 String statusText = "Long:" + lon + " Lat:" + lat;
                 gpsCoordinatesView.setText(statusText);
 */
-                Calendar cal=Calendar.getInstance();
 
-                int dayOfYear= EnvironmentSunriseSunsetTimeDateCalc.getDayOfCurrentYear();
-                int offsetToGMT=EnvironmentSunriseSunsetTimeDateCalc.getTimeZoneOffsetIn_h();
 
-                String nameOfTimeZone= EnvironmentSunriseSunsetTimeDateCalc.getCurrentTimezoneName()+" GMT+"+offsetToGMT;
+                int dayOfYear = EnvironmentSunriseSunsetTimeDateCalc.getDayOfCurrentYear();
+                int offsetToGMT = EnvironmentSunriseSunsetTimeDateCalc.getTimeZoneOffsetIn_h();
+
+                String nameOfTimeZone = EnvironmentSunriseSunsetTimeDateCalc.getCurrentTimezoneName() + " GMT+" + offsetToGMT;
                 timeZoneView.setText(nameOfTimeZone);
 
-                double sunriseTimeIn_h= EnvironmentSunsetSunriseCalc.getSunriseTimeAtObserversLocationIn_h(lon,lat,dayOfYear,offsetToGMT);
+                double sunriseTimeIn_h = EnvironmentSunsetSunriseCalc.getSunriseTimeAtObserversLocationIn_h(lon, lat, dayOfYear, offsetToGMT);
                 sunriseView.setText(EnvironmentSunriseSunsetTimeDateCalc.getTimeInTwentyFourHourFormat(sunriseTimeIn_h));
 
-                double sunsetTimeIn_h=EnvironmentSunsetSunriseCalc.getSunsetTimeAtObserversLocationIn_h(lon,lat,dayOfYear,offsetToGMT);
+                double sunsetTimeIn_h = EnvironmentSunsetSunriseCalc.getSunsetTimeAtObserversLocationIn_h(lon, lat, dayOfYear, offsetToGMT);
                 sunsetView.setText(EnvironmentSunriseSunsetTimeDateCalc.getTimeInTwentyFourHourFormat(sunsetTimeIn_h));
 
                 addressView.setText(fullAddress);
