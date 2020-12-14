@@ -13,7 +13,7 @@ More information about the project can be found here:[CodingByChanche Blog, Blue
 
 Screenshoot
 ===========
-![](localTempApp.png)
+![](localTempApü.png)
 
 [APK for Android](app/release/app-release.apk)
 
