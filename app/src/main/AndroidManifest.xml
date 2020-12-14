@@ -15,7 +15,7 @@
         android:theme="@style/Theme.BluetoothThermometer" >
 
         <receiver
-            android:name=".BTEventReceiver"
+            android:name="com.example.bluetoothconnector.BTEventReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.bluetooth.adapter.action.ACTION_STATE_CHANGED"/>

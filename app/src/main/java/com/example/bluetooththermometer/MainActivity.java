@@ -36,6 +36,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.bluetoothconnector.BTConnectedInterface;
+import com.example.bluetoothconnector.BTEventReceiver;
+import com.example.bluetoothconnector.ConnectThread;
+import com.example.bluetoothconnector.ConnectedThreadReadWriteData;
 import com.example.locationlibrary.Environment;
 import com.example.locationlibrary.EnvironmentAddress;
 import com.example.locationlibrary.EnvironmentInterf;

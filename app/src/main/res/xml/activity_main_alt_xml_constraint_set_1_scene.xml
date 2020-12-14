@@ -57,9 +57,9 @@
             android:layout_width="wrap_content"
             motion:layout_constraintStart_toStartOf="@+id/imageView"
             android:id="@+id/humidity"
-            motion:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="150dp"
-            android:layout_marginStart="16dp" />
+            android:layout_marginStart="16dp"
+            motion:layout_constraintTop_toBottomOf="@+id/temp_main_unit"
+            android:layout_marginTop="42dp" />
         <Constraint
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
             motion:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
             android:id="@+id/temp_alt_unit"
-            android:layout_marginStart="95dp"
+            android:layout_marginStart="90dp"
             motion:layout_editor_absoluteY="58dp" />
         <Constraint
             motion:layout_constraintEnd_toStartOf="@+id/connection_animation"
@@ -107,5 +107,13 @@
             motion:layout_constraintBottom_toBottomOf="@+id/imageView"
             android:layout_width="wrap_content"
             android:id="@+id/connection_animation" />
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/temp_alt_unit"
+            motion:layout_constraintStart_toStartOf="@+id/imageView"
+            android:layout_marginStart="16dp"
+            android:id="@+id/humidity"
+            android:layout_marginTop="42dp" />
     </ConstraintSet>
 </MotionScene>

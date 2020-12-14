@@ -15,15 +15,45 @@
     app:layoutDescription="@xml/activity_main_alt_xml_constraint_set_1_scene"
     tools:context="com.example.bluetooththermometer.MainActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/reconnect"
+        style="@style/floating_action_button_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/select_device"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/select_device"
+        app:layout_constraintTop_toTopOf="@+id/select_device"
+        app:srcCompat="@android:drawable/ic_menu_revert" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+        android:id="@+id/select_device"
+        style="@style/floating_action_button_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="test"
+        app:layout_constraintBottom_toBottomOf="@+id/address"
+        app:layout_constraintTop_toTopOf="@+id/time_zone"
+        app:srcCompat="@android:drawable/stat_sys_data_bluetooth"
+        tools:layout_editor_absoluteX="267dp" />
+
+
+    <!-- @rem: This shows how an image can be made transparent -->
+
     <ImageView
         android:id="@+id/image1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/noclouds_evening_port"></ImageView>
+        android:src="@drawable/noclouds_evening_port"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp"></ImageView>
 
-
-    <!-- @rem: This shows how an image can be made transparent -->
     <ImageButton
         android:id="@+id/switch_bas_pressure"
         android:layout_width="wrap_content"
@@ -39,7 +69,8 @@
         style="@style/statusMessagesStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="--"
+        android:hint="-"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toStartOf="@+id/connection_animation"
         app:layout_constraintTop_toTopOf="parent"></TextView>
@@ -57,7 +88,8 @@
         style="@style/statusMessagesStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Bat status"
+        android:hint="-------"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"></TextView>
@@ -68,7 +100,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:hint="--"
+        android:hint="-"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"></TextView>
@@ -79,7 +112,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="TIME_ZONE"
+        android:background="@drawable/text_view_custom"
+        android:hint="Grenwich Mean Time, London, Europe"
         app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/sunrise_time"></TextView>
 
@@ -102,15 +136,6 @@
         app:layout_constraintStart_toStartOf="@+id/switch_bas_pressure"
         app:layout_constraintTop_toTopOf="@+id/sunrise_time"></ImageView>
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="35dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/location"
-        app:layout_constraintStart_toStartOf="@+id/time_zone"
-        app:layout_constraintTop_toBottomOf="@+id/time_zone"></ImageView>
-
     <TextView
         android:id="@+id/sunrise_time"
         style="@style/SubTitel_text_style"
@@ -118,7 +143,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:hint="SUNRISE"
+        android:hint="00:00"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/switch_bas_pressure"></TextView>
 
@@ -128,29 +154,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:hint="SUNSET"
+        android:hint="00:00"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
         app:layout_constraintTop_toTopOf="@+id/sunrise_time"></TextView>
 
     <TextView
         android:id="@+id/address"
         style="@style/SubSubTitel_text_style"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:hint="ADDRESS"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5"></TextView>
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/text_view_custom"
+        android:drawableLeft="@android:drawable/ic_menu_mapmode"
+        android:hint="Irgendwo ist Nigendwo und überhaupt es ist völlig egal, was denkst du"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/connection_status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time_zone"></TextView>
 
     <TextView
         android:id="@+id/temp_main_unit"
         style="@style/fontStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="95dp"
-        android:layout_marginTop="50dp"
-        android:hint="Temp1"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="30dp"
+        android:hint="00 'C"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
@@ -161,7 +194,7 @@
         style="@style/fontStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Temp2"
+        android:hint="00 'F"
         app:layout_constraintBottom_toBottomOf="@+id/temp_main_unit"
         app:layout_constraintStart_toStartOf="@+id/dew_point">
 
@@ -173,10 +206,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="150dp"
-        android:hint="Hum"
+        android:layout_marginTop="42dp"
+        android:background="@drawable/text_view_custom"
+        android:hint="000%"
         app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/temp_main_unit"></TextView>
 
     <TextView
         android:id="@+id/hum_remark"
@@ -193,9 +227,9 @@
         style="@style/SubTitel_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:hint="Dew"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/text_view_custom"
+        android:hint="00 C"
+        app:layout_constraintStart_toStartOf="@+id/dew_point_remark"
         app:layout_constraintTop_toTopOf="@+id/humidity">
 
     </TextView>
@@ -206,7 +240,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dew_point_remark"
-        app:layout_constraintStart_toStartOf="@+id/dew_point"
+        app:layout_constraintStart_toStartOf="@+id/avr_press_slope"
         app:layout_constraintTop_toBottomOf="@+id/dew_point"></TextView>
 
     <TextView
@@ -215,19 +249,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Pres"
+        android:hint="1000 hP"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintStart_toStartOf="@+id/hum_remark"
         app:layout_constraintTop_toBottomOf="@+id/hum_remark"></TextView>
+
 
     <TextView
         android:id="@+id/avr_press_slope"
         style="@style/Remark_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Slope"
-        app:layout_constraintStart_toStartOf="@+id/dew_point_remark"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/text_view_custom"
+        android:hint="10 hPa/ Min"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/pressure"></TextView>
-
 
     <TextView
         android:id="@+id/pressure_time_recorded"
@@ -235,7 +272,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:hint="duration"
+        android:hint="500 Min"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintBottom_toBottomOf="@+id/pressure"
         app:layout_constraintStart_toStartOf="@+id/avr_press_slope"
         app:layout_constraintTop_toBottomOf="@+id/avr_press_slope"
@@ -256,7 +294,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Alt"
+        android:hint="1000 m"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintStart_toStartOf="@+id/pressure"
         app:layout_constraintTop_toBottomOf="@+id/press_remark"></TextView>
 
@@ -265,7 +304,8 @@
         style="@style/Remark_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Base"
+        android:hint="1000 hPa"
+        android:background="@drawable/text_view_custom"
         app:layout_constraintBottom_toBottomOf="@+id/switch_bas_pressure"
         app:layout_constraintStart_toStartOf="@+id/current_press"></TextView>
 
@@ -275,8 +315,8 @@
         style="@style/Remark_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Curr"
-        app:layout_constraintBottom_toBottomOf="@+id/alt"
+        android:background="@drawable/text_view_custom"
+        android:hint="1000 hPa"
         app:layout_constraintStart_toStartOf="@+id/pressure_time_recorded"
         app:layout_constraintTop_toTopOf="@+id/alt"></TextView>
 
@@ -290,31 +330,6 @@
         app:layout_constraintStart_toStartOf="@+id/temp_main_unit"
         app:layout_constraintTop_toBottomOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/reconnect"
-        style="@style/floating_action_button_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-
-        android:id="@+id/select_device"
-        style="@style/floating_action_button_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:contentDescription="test"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/reconnect"
-        app:layout_constraintEnd_toStartOf="@+id/reconnect"
-        app:layout_constraintTop_toTopOf="@+id/reconnect"
-        app:srcCompat="@android:drawable/stat_sys_data_bluetooth" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

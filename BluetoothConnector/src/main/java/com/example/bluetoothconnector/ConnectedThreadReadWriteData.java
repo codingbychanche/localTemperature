@@ -1,4 +1,4 @@
-package com.example.bluetooththermometer;
+package com.example.bluetoothconnector;
 
 /**
  * Connected Thread
