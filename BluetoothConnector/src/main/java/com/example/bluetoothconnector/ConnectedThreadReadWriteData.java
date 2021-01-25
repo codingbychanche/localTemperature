@@ -15,16 +15,6 @@ package com.example.bluetoothconnector;
  * Data from the bluetooth device is parsed by:
  * @see berthold.localtemperature.DecodeTemperatureData
  */
-
-/*
- * Created by Berthold Fritz
- *
- * This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License:
- * https://creativecommons.org/licenses/by-nc-sa/4.0/
- *
- *  Last modified 12/18/18 11:16 PM
- */
-
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
 import android.text.Html;
@@ -154,7 +144,6 @@ public class ConnectedThreadReadWriteData extends Thread {
     /**
      * Update temp and humidity display
      */
-
     public void updateTempAndHumidityDisplay(final TemperatureData temperatureData) {
         final StringBuilder dataToDisplay = new StringBuilder();
         final float dataRateInPercent = (dataChunksArrived / dataChunksActuallySend) * 100;
@@ -216,7 +205,6 @@ public class ConnectedThreadReadWriteData extends Thread {
     /*
      * Cancel..
      */
-
     public void cancel() {
         try {
             if (mIs != null)
@@ -225,8 +213,6 @@ public class ConnectedThreadReadWriteData extends Thread {
                 mOs.close();
             if (mSocket != null)
                 mSocket.close();
-
-            //saveToSharedPreferences();
 
         } catch (IOException e) {
             connectedInterface.receiveErrorMessage("Fehler beim schließen der Verbindung. Grund: " + e.toString());

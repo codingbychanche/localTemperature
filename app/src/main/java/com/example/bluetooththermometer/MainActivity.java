@@ -28,7 +28,6 @@ import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -58,7 +57,6 @@ import berthold.trendAnalyzer.DataToAnalyze;
 /**
  * Main
  */
-
 public class MainActivity extends AppCompatActivity
         implements BTConnectedInterface, FragmentSelectDevice.getDataFromFragment, EnvironmentInterf {
 
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity
 
     // UI
     private Handler handler;
-    private WebView tempAndHumDisplay;
     private TextView tempMainUnit, tempAltUnit, humidity, dewPoint, pressure, pressureTimeRecorded, currentPressure, basePressure, avrPressure, altitude;
     private ImageButton switchBasePressureForAlt;
 
@@ -81,7 +78,7 @@ public class MainActivity extends AppCompatActivity
     private Set<BluetoothDevice> btBondedDevices;
     private BluetoothDevice bluetoothDeviceCurentlyConnectedTo;
     private ConnectThread connectThread;
-    private String adressOfCurrentDevice;
+    private String addressOfCurrentDevice;
 
     // Statistics
     private long startTimeOfThread_ms, lastTimeValueWasSaved_ms, timestamp;
@@ -124,8 +121,6 @@ public class MainActivity extends AppCompatActivity
     // Geocoder
     private Geocoder geocoder;
     private List<Address> addresses;
-
-    //
     private Environment env;
 
     // GPS
@@ -154,8 +149,6 @@ public class MainActivity extends AppCompatActivity
         handler = new Handler();
 
         // UI- elements displaying temperature data received....
-        tempAndHumDisplay = (WebView) findViewById(R.id.temp_and_humidity_display);
-
         tempMainUnit = findViewById(R.id.temp_main_unit);
         tempAltUnit = findViewById(R.id.temp_alt_unit);
         humidity = findViewById(R.id.humidity);
@@ -192,13 +185,8 @@ public class MainActivity extends AppCompatActivity
         IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
         registerReceiver(new BTEventReceiver(), filter);
 
+        //
         if (!bluetoothAdapter.isEnabled()) {
-            // Turn bt on....
-            /*
-            FragmentManager fm = getSupportFragmentManager();
-            FragmentSelectDevice fragmentSelectDevice = FragmentSelectDevice.newInstance("Titel");
-            fragmentSelectDevice.show(fm, "fragment_ask_for_bt_connection");
-            */
             Intent bluetoothIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(bluetoothIntent, 1);
         }
@@ -257,6 +245,7 @@ public class MainActivity extends AppCompatActivity
                 connectToDevice(bluetoothDeviceCurentlyConnectedTo);
             }
         });
+
         connectToAnotherDevice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -284,7 +273,7 @@ public class MainActivity extends AppCompatActivity
         } else {
             connectionStatus.append(getResources().getString(R.string.name_of_device_selected) + deviceName);
             connectToDevice(bluetoothDeviceToConnectTo);
-            adressOfCurrentDevice = bluetoothDeviceToConnectTo.getAddress();
+            addressOfCurrentDevice = bluetoothDeviceToConnectTo.getAddress();
         }
     }
 
@@ -306,14 +295,15 @@ public class MainActivity extends AppCompatActivity
      */
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     private void connectToDeviceLogic() {
+
         // Device already selected and saved after leaving previous session?
         // If so, try to reconnect... If not, show list of devices
         // to connect to.
-        adressOfCurrentDevice = currentStateRestoreFromSharedPref();
-        if (adressOfCurrentDevice.equals("NO_DEVICE")) {
+        addressOfCurrentDevice = currentStateRestoreFromSharedPref();
+        if (addressOfCurrentDevice.equals("NO_DEVICE")) {
             showDeviceList();
         } else {
-            bluetoothDeviceCurentlyConnectedTo = getBlueToothDeviceByAdress(adressOfCurrentDevice);
+            bluetoothDeviceCurentlyConnectedTo = getBlueToothDeviceByAdress(addressOfCurrentDevice);
             if (bluetoothDeviceCurentlyConnectedTo != null)
                 connectToDevice(bluetoothDeviceCurentlyConnectedTo);
         }
@@ -338,11 +328,12 @@ public class MainActivity extends AppCompatActivity
             BluetoothManager bm = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
             blueToothAdapter = bm.getAdapter();
 
+            //reconnect.hide();
+            //connectToAnotherDevice.hide();
+
             // todo Test
             Context c = getApplicationContext();
-
-
-            connectThread = new ConnectThread(bluetoothDevice, c, connectionStatus, connectionStrength, connectionAnimation, tempAndHumDisplay, handler, this);
+            connectThread = new ConnectThread(bluetoothDevice, c, connectionStatus, connectionStrength, connectionAnimation,  handler, this);
             connectThread.start();
         } else {
             connectionStatus.append(getResources().getString(R.string.error_no_bonded_devices_found));
@@ -380,7 +371,7 @@ public class MainActivity extends AppCompatActivity
     /**
      * Callback when a connection was established.
      * <p>
-     * Receives an instance of the {@link berthold.localtemperature.ConnectedThreadReadWriteData} over which
+     * Receives an instance of the {@link  } over which
      * data can be send to the connected device.
      */
     @Override
@@ -389,9 +380,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void run() {
                 //nameOfConnectedDevice.setText(bluetoothDeviceCurentlyConnectedTo.getName());
-
-                reconnect.hide();
-                connectToAnotherDevice.hide();
             }
         });
         this.connectedThreadReadWriteData = connectedThreadReadWriteData;
@@ -607,7 +595,6 @@ public class MainActivity extends AppCompatActivity
                 addressView.setText(fullAddress);
             }
         });
-
     }
 
     /**
@@ -629,11 +616,10 @@ public class MainActivity extends AppCompatActivity
      * This method is called, when the activity was destroyed by the
      * system. E.g. screen orientation changed.
      */
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        currentStateSaveToSharedPref(adressOfCurrentDevice);
+        currentStateSaveToSharedPref(addressOfCurrentDevice);
     }
 
     /*

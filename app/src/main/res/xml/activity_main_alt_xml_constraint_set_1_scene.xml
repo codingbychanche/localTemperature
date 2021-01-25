@@ -6,15 +6,14 @@
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:motionInterpolator="linear"
-        motion:autoTransition="none">
+        motion:motionInterpolator="linear">
 
         <OnSwipe
             motion:touchAnchorId="@+id/temp_alt_unit"
             motion:touchRegionId="@+id/temp_alt_unit"
             motion:touchAnchorSide="bottom"
             motion:dragDirection="dragLeft"
-            motion:duration="5000"/>
+            motion:duration="9000"/>
 
         <KeyFrameSet >
             <KeyAttribute
@@ -75,6 +74,49 @@
             motion:layout_constraintTop_toTopOf="parent"
             android:id="@+id/connection_signal_strength"
             motion:layout_constraintEnd_toStartOf="@+id/connection_animation" />
+        <Constraint
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="@+id/pressure"
+            motion:layout_constraintVertical_bias="0.513"
+            motion:layout_constraintTop_toBottomOf="@+id/avr_press_slope"
+            motion:layout_constraintStart_toStartOf="@+id/avr_press_slope"
+            android:layout_marginTop="32dp"
+            android:id="@+id/pressure_time_recorded" />
+        <Constraint
+            motion:layout_editor_absoluteY="16dp"
+            android:layout_height="match_parent"
+            motion:layout_editor_absoluteX="30dp"
+            android:layout_width="match_parent"
+            android:id="@+id/image1" />
+        <Constraint
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@+id/sunrise_time"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/time_zone"
+            android:layout_marginStart="16dp" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toTopOf="@+id/connection_status"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintTop_toBottomOf="@+id/time_zone"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" />
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toTopOf="@+id/connection_status"
+            android:layout_marginEnd="16dp"
+            motion:layout_constraintTop_toBottomOf="@+id/time_zone"
+            android:layout_marginStart="16dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp" />
 
     </ConstraintSet>
 

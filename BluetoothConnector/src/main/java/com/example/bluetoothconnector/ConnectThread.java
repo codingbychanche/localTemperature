@@ -56,10 +56,9 @@ public class ConnectThread extends Thread {
      *
      * @see berthold.localtemperature.ConnectedThreadReadWriteData
      */
-    public ConnectThread(BluetoothDevice mDevice, Context c, TextView connectionStatus, TextView connectionStrength,TextView connectionAnimation, WebView tempAndHumDisplay, Handler h, BTConnectedInterface connectedInterface) {
+    public ConnectThread(BluetoothDevice mDevice, Context c, TextView connectionStatus, TextView connectionStrength,TextView connectionAnimation, Handler h, BTConnectedInterface connectedInterface) {
 
         this.mDevice = mDevice;
-        this.tempAndHumDisplay = tempAndHumDisplay;
         this.connectionStatus = connectionStatus;
         this.connectionStrength=connectionStrength;
         this.connectionAnimation=connectionAnimation;
@@ -81,7 +80,6 @@ public class ConnectThread extends Thread {
     /*
      * Run!
      */
-
     public void run() {
         connectedThreadReadWriteData = null;
         try {

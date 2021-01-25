@@ -16,41 +16,31 @@
     tools:context="com.example.bluetooththermometer.MainActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/reconnect"
-        style="@style/floating_action_button_style"
+        android:id="@+id/select_device"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_constraintBottom_toBottomOf="@+id/select_device"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/select_device"
-        app:layout_constraintTop_toTopOf="@+id/select_device"
-        app:srcCompat="@android:drawable/ic_menu_revert" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:src="@android:drawable/stat_sys_data_bluetooth"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-
-        android:id="@+id/select_device"
-        style="@style/floating_action_button_style"
+        android:id="@+id/reconnect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:contentDescription="test"
-        app:layout_constraintBottom_toBottomOf="@+id/address"
-        app:layout_constraintTop_toTopOf="@+id/time_zone"
-        app:srcCompat="@android:drawable/stat_sys_data_bluetooth"
-        tools:layout_editor_absoluteX="267dp" />
-
-
-    <!-- @rem: This shows how an image can be made transparent -->
+        android:layout_marginEnd="16dp"
+        android:src="@android:drawable/ic_menu_revert"
+        app:layout_constraintEnd_toStartOf="@+id/select_device"
+        app:layout_constraintTop_toTopOf="@+id/select_device"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <ImageView
         android:id="@+id/image1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/noclouds_evening_port"
+        android:src="@drawable/background_noclouds_day_port"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="2dp"></ImageView>
 
@@ -60,7 +50,6 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:src="@drawable/qnh_icon"
-
         app:layout_constraintStart_toStartOf="@+id/alt"
         app:layout_constraintTop_toBottomOf="@+id/alt" />
 
@@ -88,7 +77,7 @@
         style="@style/statusMessagesStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="-------"
+        android:hint="-"
         android:background="@drawable/text_view_custom"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -108,7 +97,7 @@
 
     <TextView
         android:id="@+id/time_zone"
-        style="@style/Remark_text_style"
+        style="@style/SubSubTitel_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -197,7 +186,6 @@
         android:hint="00 'F"
         app:layout_constraintBottom_toBottomOf="@+id/temp_main_unit"
         app:layout_constraintStart_toStartOf="@+id/dew_point">
-
     </TextView>
 
     <TextView
@@ -249,7 +237,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="1000 hP"
+        android:hint="0000 hP"
         android:background="@drawable/text_view_custom"
         app:layout_constraintStart_toStartOf="@+id/hum_remark"
         app:layout_constraintTop_toBottomOf="@+id/hum_remark"></TextView>
@@ -262,7 +250,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@drawable/text_view_custom"
-        android:hint="10 hPa/ Min"
+        android:hint="00 hPa/ Min"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/pressure"></TextView>
 
@@ -271,9 +259,9 @@
         style="@style/Remark_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:hint="500 Min"
+        android:layout_marginTop="32dp"
         android:background="@drawable/text_view_custom"
+        android:hint="000 Min"
         app:layout_constraintBottom_toBottomOf="@+id/pressure"
         app:layout_constraintStart_toStartOf="@+id/avr_press_slope"
         app:layout_constraintTop_toBottomOf="@+id/avr_press_slope"
@@ -294,7 +282,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="1000 m"
+        android:hint="0000 m"
         android:background="@drawable/text_view_custom"
         app:layout_constraintStart_toStartOf="@+id/pressure"
         app:layout_constraintTop_toBottomOf="@+id/press_remark"></TextView>
@@ -304,7 +292,7 @@
         style="@style/Remark_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="1000 hPa"
+        android:hint="0000 hPa"
         android:background="@drawable/text_view_custom"
         app:layout_constraintBottom_toBottomOf="@+id/switch_bas_pressure"
         app:layout_constraintStart_toStartOf="@+id/current_press"></TextView>
@@ -316,7 +304,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/text_view_custom"
-        android:hint="1000 hPa"
+        android:hint="0000 hPa"
         app:layout_constraintStart_toStartOf="@+id/pressure_time_recorded"
         app:layout_constraintTop_toTopOf="@+id/alt"></TextView>
 
