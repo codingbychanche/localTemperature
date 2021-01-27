@@ -28,6 +28,8 @@ import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -70,6 +72,9 @@ public class MainActivity extends AppCompatActivity
 
     private TextView connectionStatus, nameOfConnectedDevice, deviceBatStatus, connectionStrength, connectionAnimation;
     private FloatingActionButton reconnect, connectToAnotherDevice;
+
+    // Animations
+    Animation fadeInAnim, fadeOutAnim;
 
     private TextView timeZoneView, sunriseView, sunsetView, addressView;
 
@@ -170,6 +175,7 @@ public class MainActivity extends AppCompatActivity
         reconnect = (FloatingActionButton) findViewById(R.id.reconnect);
         connectToAnotherDevice = (FloatingActionButton) findViewById(R.id.select_device);
 
+
         switchBasePressureForAlt = findViewById(R.id.switch_bas_pressure);
 
         // UI elements showing enviromental data
@@ -177,6 +183,11 @@ public class MainActivity extends AppCompatActivity
         sunriseView = findViewById(R.id.sunrise_time);
         sunsetView = findViewById(R.id.sunset_time);
         addressView = findViewById(R.id.address);
+
+        // Anim
+        fadeInAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.menu_fade_in);
+        fadeOutAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.menu_fade_out);
+
 
         // Check if bluetooth is enabeled
         BluetoothManager bm = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
@@ -328,8 +339,8 @@ public class MainActivity extends AppCompatActivity
             BluetoothManager bm = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
             blueToothAdapter = bm.getAdapter();
 
-            //reconnect.hide();
-            //connectToAnotherDevice.hide();
+            reconnect.startAnimation(fadeOutAnim);
+            connectToAnotherDevice.startAnimation(fadeOutAnim);
 
             // todo Test
             Context c = getApplicationContext();
@@ -535,8 +546,8 @@ public class MainActivity extends AppCompatActivity
                 Spanned htmlText = Html.fromHtml(html);
                 connectionAnimation.setText(htmlText);
 
-                reconnect.show();
-                connectToAnotherDevice.show();
+                reconnect.startAnimation(fadeInAnim);
+                connectToAnotherDevice.startAnimation(fadeInAnim);
             }
         });
     }

@@ -104,7 +104,7 @@ public class ConnectedThreadReadWriteData extends Thread {
 
                 // Wait before next data chunk arrives.
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                 }
 

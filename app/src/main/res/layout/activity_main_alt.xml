@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><!--
+<?xml version="1.0" encoding="utf-8"?>
+<!--
   ~ Created by Berthold Fritz
   ~
   ~ This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License:
@@ -8,315 +9,316 @@
   -->
 
 <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+app:layoutDescription="@xml/activity_main_alt_xml_constraint_set_1_scene"
+tools:context="com.example.bluetooththermometer.MainActivity">
+
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/select_device"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    android:src="@android:drawable/stat_sys_data_bluetooth"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/reconnect"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:src="@android:drawable/ic_menu_revert"
+    app:layout_constraintEnd_toStartOf="@+id/select_device"
+    app:layout_constraintTop_toTopOf="@+id/select_device"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+<ImageView
+    android:id="@+id/image1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/activity_main_alt_xml_constraint_set_1_scene"
-    tools:context="com.example.bluetooththermometer.MainActivity">
+    android:scaleType="centerCrop"
+    android:src="@drawable/background_noclouds_day_port"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="2dp"></ImageView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/select_device"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:src="@android:drawable/stat_sys_data_bluetooth"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+<ImageButton
+    android:id="@+id/switch_bas_pressure"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:src="@drawable/qnh_icon"
+    app:layout_constraintStart_toStartOf="@+id/alt"
+    app:layout_constraintTop_toBottomOf="@+id/alt" />
 
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/reconnect"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:src="@android:drawable/ic_menu_revert"
-        app:layout_constraintEnd_toStartOf="@+id/select_device"
-        app:layout_constraintTop_toTopOf="@+id/select_device"></com.google.android.material.floatingactionbutton.FloatingActionButton>
-
-    <ImageView
-        android:id="@+id/image1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background_noclouds_day_port"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="2dp"></ImageView>
-
-    <ImageButton
-        android:id="@+id/switch_bas_pressure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:src="@drawable/qnh_icon"
-        app:layout_constraintStart_toStartOf="@+id/alt"
-        app:layout_constraintTop_toBottomOf="@+id/alt" />
-
-    <TextView
-        android:id="@+id/connection_signal_strength"
-        style="@style/statusMessagesStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="-"
-        android:background="@drawable/text_view_custom"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toStartOf="@+id/connection_animation"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+<TextView
+    android:id="@+id/connection_signal_strength"
+    style="@style/statusMessagesStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="-"
+    android:background="@drawable/text_view_custom"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+    app:layout_constraintEnd_toStartOf="@+id/connection_animation"
+    app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:src="@android:drawable/ic_lock_idle_charging"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-    <TextView
-        android:id="@+id/sensor_bat_status"
-        style="@style/statusMessagesStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="-"
-        android:background="@drawable/text_view_custom"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+<TextView
+    android:id="@+id/sensor_bat_status"
+    style="@style/statusMessagesStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="-"
+    android:background="@drawable/text_view_custom"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+    app:layout_constraintStart_toEndOf="@+id/imageView"
+    app:layout_constraintTop_toTopOf="parent"></TextView>
 
-    <TextView
-        android:id="@+id/connection_animation"
-        style="@style/statusMessagesStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:hint="-"
-        android:background="@drawable/text_view_custom"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+<TextView
+    android:id="@+id/connection_animation"
+    style="@style/statusMessagesStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:hint="-"
+    android:background="@drawable/text_view_custom"
+    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"></TextView>
 
-    <TextView
-        android:id="@+id/time_zone"
-        style="@style/SubSubTitel_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/text_view_custom"
-        android:hint="Grenwich Mean Time, London, Europe"
-        app:layout_constraintStart_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/sunrise_time"></TextView>
+<TextView
+    android:id="@+id/time_zone"
+    style="@style/SubSubTitel_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/text_view_custom"
+    android:hint="Grenwich Mean Time, London, Europe"
+    app:layout_constraintStart_toStartOf="@+id/imageView4"
+    app:layout_constraintTop_toBottomOf="@+id/sunrise_time"></TextView>
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="35dp"
-        android:layout_height="34dp"
-        android:layout_marginStart="16dp"
-        android:src="@drawable/sunset"
-        app:layout_constraintBottom_toBottomOf="@+id/sunset_time"
-        app:layout_constraintStart_toEndOf="@+id/sunrise_time"
-        app:layout_constraintTop_toTopOf="@+id/sunset_time"></ImageView>
+<ImageView
+    android:id="@+id/imageView3"
+    android:layout_width="35dp"
+    android:layout_height="34dp"
+    android:layout_marginStart="16dp"
+    android:src="@drawable/sunset"
+    app:layout_constraintBottom_toBottomOf="@+id/sunset_time"
+    app:layout_constraintStart_toEndOf="@+id/sunrise_time"
+    app:layout_constraintTop_toTopOf="@+id/sunset_time"></ImageView>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="35dp"
-        android:layout_height="34dp"
-        android:src="@drawable/sunrise"
-        app:layout_constraintBottom_toBottomOf="@+id/sunrise_time"
-        app:layout_constraintStart_toStartOf="@+id/switch_bas_pressure"
-        app:layout_constraintTop_toTopOf="@+id/sunrise_time"></ImageView>
+<ImageView
+    android:id="@+id/imageView4"
+    android:layout_width="35dp"
+    android:layout_height="34dp"
+    android:src="@drawable/sunrise"
+    app:layout_constraintBottom_toBottomOf="@+id/sunrise_time"
+    app:layout_constraintStart_toStartOf="@+id/switch_bas_pressure"
+    app:layout_constraintTop_toTopOf="@+id/sunrise_time"></ImageView>
 
-    <TextView
-        android:id="@+id/sunrise_time"
-        style="@style/SubTitel_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:hint="00:00"
-        android:background="@drawable/text_view_custom"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/switch_bas_pressure"></TextView>
+<TextView
+    android:id="@+id/sunrise_time"
+    style="@style/SubTitel_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="32dp"
+    android:hint="00:00"
+    android:background="@drawable/text_view_custom"
+    app:layout_constraintStart_toEndOf="@+id/imageView4"
+    app:layout_constraintTop_toBottomOf="@+id/switch_bas_pressure"></TextView>
 
-    <TextView
-        android:id="@+id/sunset_time"
-        style="@style/SubTitel_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:hint="00:00"
-        android:background="@drawable/text_view_custom"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/sunrise_time"></TextView>
+<TextView
+    android:id="@+id/sunset_time"
+    style="@style/SubTitel_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:hint="00:00"
+    android:background="@drawable/text_view_custom"
+    app:layout_constraintStart_toEndOf="@+id/imageView3"
+    app:layout_constraintTop_toTopOf="@+id/sunrise_time"></TextView>
 
-    <TextView
-        android:id="@+id/address"
-        style="@style/SubSubTitel_text_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/text_view_custom"
-        android:drawableLeft="@android:drawable/ic_menu_mapmode"
-        android:hint="Irgendwo ist Nigendwo und überhaupt es ist völlig egal, was denkst du"
-        android:paddingRight="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/connection_status"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/time_zone"></TextView>
+<TextView
+    android:id="@+id/address"
+    style="@style/SubSubTitel_text_style"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:background="@drawable/text_view_custom"
+    android:drawableLeft="@android:drawable/ic_menu_mapmode"
+    android:hint="Irgendwo ist Nigendwo und überhaupt es ist völlig egal, was denkst du"
+    android:paddingRight="10dp"
+    app:layout_constraintBottom_toTopOf="@+id/connection_status"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/time_zone"></TextView>
 
-    <TextView
-        android:id="@+id/temp_main_unit"
-        style="@style/fontStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="30dp"
-        android:hint="00 'C"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+<TextView
+    android:id="@+id/temp_main_unit"
+    style="@style/fontStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="90dp"
+    android:layout_marginTop="30dp"
+    android:hint="00 'C"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-    </TextView>
+</TextView>
 
-    <TextView
-        android:id="@+id/temp_alt_unit"
-        style="@style/fontStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="00 'F"
-        app:layout_constraintBottom_toBottomOf="@+id/temp_main_unit"
-        app:layout_constraintStart_toStartOf="@+id/dew_point">
-    </TextView>
+<TextView
+    android:id="@+id/temp_alt_unit"
+    style="@style/fontStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="00 'F"
+    app:layout_constraintBottom_toBottomOf="@+id/temp_main_unit"
+    app:layout_constraintStart_toStartOf="@+id/dew_point">
+</TextView>
 
     <TextView
         android:id="@+id/humidity"
         style="@style/SubTitel_text_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="42dp"
         android:background="@drawable/text_view_custom"
         android:hint="000%"
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/temp_main_unit"></TextView>
 
-    <TextView
-        android:id="@+id/hum_remark"
-        style="@style/Remark_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:rotationX="0"
-        android:text="@string/hum_remark"
-        app:layout_constraintStart_toStartOf="@+id/humidity"
-        app:layout_constraintTop_toBottomOf="@+id/humidity"></TextView>
+<TextView
+    android:id="@+id/hum_remark"
+    style="@style/Remark_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:rotationX="0"
+    android:text="@string/hum_remark"
+    app:layout_constraintStart_toStartOf="@+id/humidity"
+    app:layout_constraintTop_toBottomOf="@+id/humidity"></TextView>
 
-    <TextView
-        android:id="@+id/dew_point"
-        style="@style/SubTitel_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/text_view_custom"
-        android:hint="00 C"
-        app:layout_constraintStart_toStartOf="@+id/dew_point_remark"
-        app:layout_constraintTop_toTopOf="@+id/humidity">
+<TextView
+    android:id="@+id/dew_point"
+    style="@style/SubTitel_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/text_view_custom"
+    android:hint="00 C"
+    app:layout_constraintStart_toStartOf="@+id/dew_point_remark"
+    app:layout_constraintTop_toTopOf="@+id/humidity">
 
-    </TextView>
+</TextView>
 
-    <TextView
-        android:id="@+id/dew_point_remark"
-        style="@style/Remark_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dew_point_remark"
-        app:layout_constraintStart_toStartOf="@+id/avr_press_slope"
-        app:layout_constraintTop_toBottomOf="@+id/dew_point"></TextView>
+<TextView
+    android:id="@+id/dew_point_remark"
+    style="@style/Remark_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/dew_point_remark"
+    app:layout_constraintStart_toStartOf="@+id/avr_press_slope"
+    app:layout_constraintTop_toBottomOf="@+id/dew_point"></TextView>
 
-    <TextView
-        android:id="@+id/pressure"
-        style="@style/SubTitel_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="0000 hP"
-        android:background="@drawable/text_view_custom"
-        app:layout_constraintStart_toStartOf="@+id/hum_remark"
-        app:layout_constraintTop_toBottomOf="@+id/hum_remark"></TextView>
-
-
-    <TextView
-        android:id="@+id/avr_press_slope"
-        style="@style/Remark_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/text_view_custom"
-        android:hint="00 hPa/ Min"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/pressure"></TextView>
-
-    <TextView
-        android:id="@+id/pressure_time_recorded"
-        style="@style/Remark_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/text_view_custom"
-        android:hint="000 Min"
-        app:layout_constraintBottom_toBottomOf="@+id/pressure"
-        app:layout_constraintStart_toStartOf="@+id/avr_press_slope"
-        app:layout_constraintTop_toBottomOf="@+id/avr_press_slope"
-        app:layout_constraintVertical_bias="0.513"></TextView>
-
-    <TextView
-        android:id="@+id/press_remark"
-        style="@style/Remark_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/press_remark"
-        app:layout_constraintStart_toStartOf="@+id/pressure"
-        app:layout_constraintTop_toBottomOf="@+id/pressure_time_recorded"></TextView>
-
-    <TextView
-        android:id="@+id/alt"
-        style="@style/SubTitel_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="0000 m"
-        android:background="@drawable/text_view_custom"
-        app:layout_constraintStart_toStartOf="@+id/pressure"
-        app:layout_constraintTop_toBottomOf="@+id/press_remark"></TextView>
-
-    <TextView
-        android:id="@+id/base_pressure"
-        style="@style/Remark_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="0000 hPa"
-        android:background="@drawable/text_view_custom"
-        app:layout_constraintBottom_toBottomOf="@+id/switch_bas_pressure"
-        app:layout_constraintStart_toStartOf="@+id/current_press"></TextView>
+<TextView
+    android:id="@+id/pressure"
+    style="@style/SubTitel_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:hint="0000 hP"
+    android:background="@drawable/text_view_custom"
+    app:layout_constraintStart_toStartOf="@+id/hum_remark"
+    app:layout_constraintTop_toBottomOf="@+id/hum_remark"></TextView>
 
 
-    <TextView
-        android:id="@+id/current_press"
-        style="@style/Remark_text_style"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/text_view_custom"
-        android:hint="0000 hPa"
-        app:layout_constraintStart_toStartOf="@+id/pressure_time_recorded"
-        app:layout_constraintTop_toTopOf="@+id/alt"></TextView>
+<TextView
+    android:id="@+id/avr_press_slope"
+    style="@style/Remark_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="16dp"
+    android:background="@drawable/text_view_custom"
+    android:hint="00 hPa/ Min"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/pressure"></TextView>
 
-    <TextView
-        android:id="@+id/connection_status"
-        style="@style/statusMessagesStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:hint="@string/status_display_hint"
-        app:layout_constraintStart_toStartOf="@+id/temp_main_unit"
-        app:layout_constraintTop_toBottomOf="parent" />
+<TextView
+    android:id="@+id/pressure_time_recorded"
+    style="@style/Remark_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="32dp"
+    android:background="@drawable/text_view_custom"
+    android:hint="000 Min"
+    app:layout_constraintBottom_toBottomOf="@+id/pressure"
+    app:layout_constraintStart_toStartOf="@+id/avr_press_slope"
+    app:layout_constraintTop_toBottomOf="@+id/avr_press_slope"
+    app:layout_constraintVertical_bias="0.513"></TextView>
+
+<TextView
+    android:id="@+id/press_remark"
+    style="@style/Remark_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/press_remark"
+    app:layout_constraintStart_toStartOf="@+id/pressure"
+    app:layout_constraintTop_toBottomOf="@+id/pressure_time_recorded"></TextView>
+
+<TextView
+    android:id="@+id/alt"
+    style="@style/SubTitel_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:hint="0000 m"
+    android:background="@drawable/text_view_custom"
+    app:layout_constraintStart_toStartOf="@+id/pressure"
+    app:layout_constraintTop_toBottomOf="@+id/press_remark"></TextView>
+
+<TextView
+    android:id="@+id/base_pressure"
+    style="@style/Remark_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:hint="0000 hPa"
+    android:background="@drawable/text_view_custom"
+    app:layout_constraintBottom_toBottomOf="@+id/switch_bas_pressure"
+    app:layout_constraintStart_toStartOf="@+id/current_press"></TextView>
+
+
+<TextView
+    android:id="@+id/current_press"
+    style="@style/Remark_text_style"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/text_view_custom"
+    android:hint="0000 hPa"
+    app:layout_constraintStart_toStartOf="@+id/pressure_time_recorded"
+    app:layout_constraintTop_toTopOf="@+id/alt"></TextView>
+
+<TextView
+    android:id="@+id/connection_status"
+    style="@style/statusMessagesStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="4dp"
+    android:hint="@string/status_display_hint"
+    app:layout_constraintStart_toStartOf="@+id/temp_main_unit"
+    app:layout_constraintTop_toBottomOf="parent" />
 
 
 
